@@ -14,12 +14,14 @@ namespace C__Windows_Forms_Application
     {
         ChatServer server = null;
         ChatClient client = null;
+        Form chatForm;
 
-        public Form2(ChatServer server, ChatClient client)
+        public Form2(ChatServer server, ChatClient client, Form chatForm)
         {
             InitializeComponent();
             this.server = server;
             this.client = client;
+            this.chatForm = chatForm;
         }
 
         private void TypeTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -42,23 +44,17 @@ namespace C__Windows_Forms_Application
         {
             if (client != null)
             {
-                client.SendString(TypeTextBox.Text);
+                client.SendString("!name " + TypeTextBox.Text);
+                this.Close();
+                chatForm.Show();
             }
             else if (server != null)
             {
                 server.SendToAll(TypeTextBox.Text, null);
+                this.Close();
+                chatForm.Show();
             }
             TypeTextBox.Clear();
-        }
-
-        public void HideCurrentForm()
-        {
-            this.Hide();
-        }
-
-        public void ShowCurrentForm()
-        {
-            this.Show();
         }
     }
 }

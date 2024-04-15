@@ -54,7 +54,7 @@ namespace C__Windows_Forms_Application
                     client.ConnectToServer();
 
                     
-                    Form2 createUserName = new Form2(this.server, this.client);
+                    Form2 createUserName = new Form2(this.server, this.client, this);
                     createUserName.Show();
 
                     this.Hide();

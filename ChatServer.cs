@@ -108,6 +108,11 @@ namespace C__Windows_Forms_Application
                 currentClientSocket.socket.Send(data);
                 AddToChat("Commands sent to: " + currentClientSocket.username);
             }
+            else if (text.ToLower().StartsWith("!name"))
+            {
+                // remove the first 6 characters of text with Substring
+                currentClientSocket.username = text.Substring(6);
+            }
             else if (text.ToLower() == "!exit")
             {
                 currentClientSocket.socket.Shutdown(SocketShutdown.Both);
