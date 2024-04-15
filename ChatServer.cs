@@ -82,7 +82,6 @@ namespace C__Windows_Forms_Application
             ClientSocket currentClientSocket = (ClientSocket)AR.AsyncState;
 
             int received;
-            // new line to test git
             try
             {
                 received = currentClientSocket.socket.EndReceive(AR);

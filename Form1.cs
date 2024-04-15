@@ -52,6 +52,12 @@ namespace C__Windows_Forms_Application
                         throw new Exception("Incorrect Port Value!");
                     }
                     client.ConnectToServer();
+
+                    
+                    Form2 createUserName = new Form2(this.server, this.client);
+                    createUserName.Show();
+
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {
@@ -78,21 +84,6 @@ namespace C__Windows_Forms_Application
             if (server == null && client == null)
                 return true;
             else return false; // Has already become a client or a server.
-        }
-
-        private void SendButton_KeyDown(object sender, KeyEventArgs e)
-        {
-            //if (e.KeyCode == Keys.Enter)
-            //{
-            //    if (client != null)
-            //    {
-            //        client.SendString(TypeTextBox.Text);
-            //    }
-            //    else if (server != null)
-            //    {
-            //        server.SendToAll(TypeTextBox.Text, null);
-            //    }
-            //}
         }
 
         public void HideServerInformation()

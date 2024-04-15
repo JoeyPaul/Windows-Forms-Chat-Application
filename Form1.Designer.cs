@@ -141,7 +141,6 @@
             SendButton.Text = "Send";
             SendButton.UseVisualStyleBackColor = true;
             SendButton.Click += SendButton_Click;
-            SendButton.KeyDown += SendButton_KeyDown;
             // 
             // labelMyPort
             // 
